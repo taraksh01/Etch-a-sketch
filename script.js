@@ -20,7 +20,10 @@ function createGrid() {
   }
 }
 
-
+size.addEventListener("click", () => {
+  gridSize = parseInt(prompt("Enter the size of grid"));
+  updateGrid(gridSize);
+});
 
 function updateGrid(gridSize) {
   while (container.hasChildNodes()) {
