@@ -8,3 +8,9 @@ for (let i = 0; i < 16; i++) {
   }
 }
 
+const grids = document.querySelectorAll(".child");
+grids.forEach((item) => {
+  item.addEventListener("mouseover", () => {
+    item.setAttribute("style", "background-color: black;");
+  });
+});
