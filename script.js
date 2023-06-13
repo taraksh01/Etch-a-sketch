@@ -45,11 +45,12 @@ function updateGrid(gridSize) {
       child.classList.add("child");
       child.setAttribute(
         "style",
-        `height: calc(100% / ${gridSize}); width: calc(100% / ${gridSize});`
+        `height: calc(500 / ${gridSize})px; width: calc(500 / ${gridSize})px;`
       );
       container.appendChild(child);
     }
   }
+  colorGrid();
 }
 
 function variableColor() {
@@ -59,10 +60,16 @@ function variableColor() {
   return `rgb(${red},${green},${blue})`;
 }
 
-const grids = document.querySelectorAll(".child");
-grids.forEach((item) => {
-  item.addEventListener("mouseover", () => {
-    item.textContent = "t";
-    item.setAttribute("style", `background-color: ${gridColor}; color: white;`);
+function colorGrid() {
+  const grids = document.querySelectorAll(".child");
+  grids.forEach((item) => {
+    item.addEventListener("mouseover", () => {
+      item.textContent = "t";
+      item.setAttribute(
+        "style",
+        `background-color: ${gridColor}; color: white;`
+      );
+    });
   });
-});
+}
+colorGrid();
