@@ -48,6 +48,13 @@ function updateGrid(gridSize) {
   }
 }
 
+function variableColor() {
+  const red = Math.floor(Math.random() * 256);
+  const green = Math.floor(Math.random() * 256);
+  const blue = Math.floor(Math.random() * 256);
+  return `rgb(${red},${green},${blue})`;
+}
+
 const grids = document.querySelectorAll(".child");
 grids.forEach((item) => {
   item.addEventListener("mouseover", () => {
