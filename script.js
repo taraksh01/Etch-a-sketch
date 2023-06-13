@@ -1,13 +1,20 @@
 const container = document.querySelector("#container");
 let gridSize = 16;
 const size = document.querySelector(".size");
+const rgb = document.querySelector(".rgb");
+const black = document.querySelector(".black");
+const clear = document.querySelector(".clear");
+let gridColor = "black";
 
 createGrid();
-const grids = document.querySelectorAll(".child");
-grids.forEach((item) => {
-  item.addEventListener("mouseover", () => {
-    item.setAttribute("style", "background-color: black;");
-  });
+
+size.addEventListener("click", () => {
+  gridSize = parseInt(prompt("Enter the size of grid"));
+  updateGrid(gridSize);
+});
+
+clear.addEventListener("click", () => {
+  gridColor = "whitesmoke";
 });
 
 function createGrid() {
@@ -19,11 +26,6 @@ function createGrid() {
     }
   }
 }
-
-size.addEventListener("click", () => {
-  gridSize = parseInt(prompt("Enter the size of grid"));
-  updateGrid(gridSize);
-});
 
 function updateGrid(gridSize) {
   while (container.hasChildNodes()) {
@@ -41,3 +43,11 @@ function updateGrid(gridSize) {
     }
   }
 }
+
+const grids = document.querySelectorAll(".child");
+grids.forEach((item) => {
+  item.addEventListener("mouseover", () => {
+    item.textContent = "t";
+    item.setAttribute("style", `background-color: ${gridColor}; color: white;`);
+  });
+});
